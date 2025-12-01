@@ -928,10 +928,21 @@ body {
   margin: 0 0 1.5rem 0;
 }
 
-.phone-grid {
+/* .phone-grid {
+  gap: 1.5rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+} */
+
+.phone-flex {
   gap: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Each card takes 1/3 width → max 3 per row */
+.phone-flex > * {
+  flex: 1 1 calc(33.333% - 1.5rem);
 }
 
 .phone-card {
@@ -1022,4 +1033,11 @@ body {
     font-size: 0.75rem;
     line-height: 1.4;
   }
+}
+
+.phone-divider {
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: 500;
+  text-shadow: #a9b5d9;
 }
