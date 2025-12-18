@@ -1411,3 +1411,44 @@ body {
   transform: translateY(-5px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 25px var(--gold-glow);
 }
+
+/* Wider card already handled above */
+.new-office {
+  max-width: 520px;
+}
+
+/* Keep map visually consistent with others */
+.new-office .office-map {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.new-office .office-map iframe {
+  height: 180px;
+}
+
+
+/* About section image replacement */
+.about-image {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+
+  /* Glass / premium depth */
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(201, 162, 103, 0.15);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 860px) {
+  .about-image {
+    margin: 0 auto;
+    max-width: 420px;
+  }
+}
+
