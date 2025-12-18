@@ -344,31 +344,31 @@ body {
     0 0 30px rgba(201, 162, 103, 0.05);
 }
 
-/* Company heading with logo */
+/* ========== BRAND HEADING & LOGOS ========== */
+
+/* ========== BRAND HEADING & LOGOS ========== */
+
 .company-heading {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
+  display: flex;             /* Use Flexbox for perfect alignment */
+  align-items: center;       /* Vertically center the logo and text */
+  gap: 16px;                 /* Increased gap for larger logos */
   margin-bottom: 0.75rem;
-  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  flex-wrap: nowrap;         /* Keep them on the same line if possible */
+}
+
+.company-logo {
+  height: 2.2em;             /* INCREASED: Makes logos much larger relative to text */
+  width: auto;               /* Maintains aspect ratio */
+  object-fit: contain;       /* Ensures logo isn't cut off */
+  display: block;            /* Removes inline image spacing quirks */
+  flex-shrink: 0;            /* Prevents logo from squishing on small screens */
 }
 
 .company-heading h2 {
   margin: 0;
-  display: inline-flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.3em;
-  font-size: inherit;
-}
-
-/* Logo sizing - match height of capital letters */
-.company-logo {
-  width: 2.8em;
-  height: 2.8em;
-  object-fit: contain;
-  flex-shrink: 0;
-  align-self: center;
+  line-height: 1.1;          /* Slightly relaxed line-height for multi-line titles */
+  display: inline-block;
+  padding-top: 0.1em;        /* Optical alignment correction */
 }
 
 /* Primary text - "Innerwork" - full emphasis */
@@ -384,23 +384,24 @@ body {
   font-weight: 600;
 }
 
-/* Tablet adjustments */
-@media (max-width: 992px) {
+/* ========== RESPONSIVE ADJUSTMENTS ========== */
+
+@media (max-width: 860px) {
   .company-heading {
     gap: 12px;
   }
-}
-
-/* Mobile adjustments */
-@media (max-width: 860px) {
-  .company-heading {
-    gap: 10px;
+  
+  /* Slightly reduce logo size on mobile so it doesn't dominate */
+  .company-logo {
+    height: 1.8em; 
   }
 
   .company-secondary {
     font-size: 0.9em;
   }
 }
+
+/* ========== GENERAL BRAND STYLES ========== */
 
 .brand h2 {
   margin: 0 0 0.75rem;
@@ -425,7 +426,7 @@ body {
   color: var(--ink);
 }
 
-/* Responsive stacking */
+/* Responsive stacking for brand layout */
 @media (max-width: 860px) {
   .brand-inner {
     flex-direction: column !important;
@@ -437,7 +438,6 @@ body {
     width: 100%;
   }
 }
-
 /* ========== FOOTER (Glass/Semi-glass) ========== */
 .site-footer {
   text-align: center;
