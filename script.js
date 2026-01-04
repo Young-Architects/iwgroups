@@ -45,4 +45,47 @@ document.addEventListener("DOMContentLoaded", () => {
       nav.classList.toggle("show");
     });
   }
+
+  // Office Modal Logic
+  const modal = document.getElementById("office-modal");
+  const closeBtn = document.querySelector(".modal-close");
+  const modalCta = document.querySelector(".modal-cta");
+
+  // Key for session storage
+  const SEEN_KEY = "iwg_office_announcement_seen";
+
+  function closeModal() {
+    if (modal) {
+      modal.classList.remove("show");
+      // Mark as seen when closed or acted upon
+      sessionStorage.setItem(SEEN_KEY, "true");
+    }
+  }
+
+  // Show if not seen
+  if (!sessionStorage.getItem(SEEN_KEY) && modal) {
+    // Small delay for better UX (don't pop immediately on load)
+    setTimeout(() => {
+      modal.classList.add("show");
+    }, 1500);
+  }
+
+  if (closeBtn) closeBtn.addEventListener("click", closeModal);
+  if (modalCta) modalCta.addEventListener("click", closeModal);
+
+  // Close on outside click
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("show")) {
+        closeModal();
+      }
+    });
+  }
 });
