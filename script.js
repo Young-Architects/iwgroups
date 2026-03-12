@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (modal) {
       modal.classList.remove("show");
       // Mark as seen when closed or acted upon
-      sessionStorage.setItem(SEEN_KEY, "true");
+      // sessionStorage.setItem(SEEN_KEY, "true");
     }
   }
 
